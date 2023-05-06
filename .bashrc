@@ -121,11 +121,6 @@ fi
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
-#free
-alias free="free -mt"
-
-#continue download
-alias wget="wget -c"
 
 ## # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
