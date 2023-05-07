@@ -108,8 +108,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#Completition for PATH 
+#Starship prompt 
+eval "$(starship init bash)"
 
+#Completition for PATH 
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -121,9 +123,8 @@ fi
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
-
-## # ex = EXtractor for all kinds of archives
-# # usage: ex <file>
+# ex = EXtractor for all kinds of archives
+# usage: ex <file>
 
 ex ()
 {
@@ -148,7 +149,24 @@ ex ()
   else
     echo "'$1' is not a valid file"
   fi
+}
+
+#Command to update everything on the system
+upgradeall ()
+{
+    echo "====================== Beginning the update cycle ======================"
+    echo " Running sudo nala update && sudo nala upgrade -y "
+    sudo nala update && sudo nala upgrade -y
+    sudo nala autoremove && sudo nala autopurge -y
+    echo " End of running standard system update (nala) "
+    echo " Running update for Nix-env package manager "
+    nix-channel --update nixpkgs
+    nix-env -u '*'
+    nix-collect-garbage -d
+    echo " End of running update for Nix-env package manager "
+    echo "====================== End of update cycle ======================"
 } 
+
 
 alias ls='exa --long --binary --group --header --created --modified -aFm --group-directories-first --color=always --sort=modified'
  # alias ll='ls -alF'
@@ -156,12 +174,11 @@ alias ls='exa --long --binary --group --header --created --modified -aFm --group
  # alias l='ls -CF'
  # alias lse='ls -lhCF --color=auto'
 alias vim='nvim'
-alias svim='sudo nvim'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias dir='dir --color=always'
+alias vdir='vdir --color=always'
+alias grep='grep --color=always'
+alias fgrep='fgrep --color=always'
+alias egrep='egrep --color=always'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias bcat='batcat'
@@ -178,5 +195,4 @@ alias df='df -h'
 alias free="free -mt"
 #continue download
 alias wget="wget -c"
-
- #pfetch
+pfetch
