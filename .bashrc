@@ -93,9 +93,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -167,20 +164,20 @@ upgradeall ()
     echo "====================== End of update cycle ======================"
 } 
 
-
-alias ls='exa --long --binary --group --header --created --modified -aFm --group-directories-first --color=always --sort=modified'
+alias ls='exa --long --binary --group --header --created --modified -aFm --group-directories-first --color=auto --sort=modified'
  # alias ll='ls -alF'
  # alias la='ls -A'
  # alias l='ls -CF'
  # alias lse='ls -lhCF --color=auto'
 alias vim='nvim'
-alias dir='dir --color=always'
-alias vdir='vdir --color=always'
-alias grep='grep --color=always'
-alias fgrep='fgrep --color=always'
-alias egrep='egrep --color=always'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 alias bcat='batcat'
 alias mv='mv -iv'
 alias rm='rm -iv'
@@ -189,10 +186,7 @@ alias mkdir='mkdir -vp'
 alias rmdir='rmdir -vp'
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown now'
-#readable output
 alias df='df -h'
-#free
 alias free="free -mt"
-#continue download
 alias wget="wget -c"
 pfetch
