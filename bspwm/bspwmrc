@@ -7,8 +7,8 @@ bspc rule -r "*"
 pgrep -x sxhkd > /dev/null || sxhkd &
 dunst &
 sxhkd &
-picom &
-/home/dacker/.local/bin/polybar-bspwm &
+picom --config /home/dacker/.config/picom/picom.conf &
+#polybar launch script &
 clipmenud &
 volumeicon &
 nm-applet &
@@ -41,5 +41,9 @@ bspc config presel_feedback_color  "#fdee00"
 bspc config urgent_border_color    "#cc2885"
 
 #Rules for windows
+bspc rule -a Pavucontrol:pavucontrol state=floating 
+bspc rule -a Lxappearance state=floating layer=normal center=true
+bspc rule -a Galculator state=floating layer=normal center=true
+bspc rule -a Xfce4-terminal state=floating layer=normal center=true
 bspc rule -a EXAMPLE desktop='^8' state=floating follow=on
 bspc rule -a Screenkey manage=off

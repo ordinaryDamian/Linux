@@ -1,5 +1,5 @@
 [global]
-   font = Iosevka Term Medium 11
+   font = Iosevka Term Medium 12
   
     
     # Allow a small subset of html markup:
@@ -134,7 +134,7 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+    startup_notification = true
     
     # dmenu path.
     dmenu = /usr/bin/dmenu -p dunst:
@@ -149,8 +149,8 @@
     icon_folders = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/
 
 [frame]
-    width = 2
-    color = "#53b1b1"
+    width = 3
+    color = "#711c91"
 
 [shortcuts]
     # Shortcuts are specified as [modifier+][modifier+]...key
@@ -175,17 +175,17 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#11222c"
-    foreground = "#bafdfe"
+    background = "#1a1032"
+    foreground = "#fdee00"
     timeout = 4
 
 [urgency_normal]
-    background = "#11222c"
-    foreground = "#bafdfe"
+    background = "#1a1032"
+    foreground = "#0abdc6"
     timeout = 4
 
 [urgency_critical]
-    background = "#ff0000"
+    background = "#cc2885"
     foreground = "#ffffff"
     timeout = 0
 
