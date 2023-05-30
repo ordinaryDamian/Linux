@@ -2,21 +2,25 @@
 
 #If refresing BSPWM, remove all previous rules to prevent doubling up
 bspc rule -r "*"
+killall -9 sxhkd dunst picom xfce4-power-manager xsettingsd mpd
 
 #Startup stuff
-pgrep -x sxhkd > /dev/null || sxhkd &
 dunst &
-sxhkd &
+sxhkd -c /home/dacker/.config/sxhkd/sxhkdrc &
+xsettingsd --config=/home/dacker/.config/xsettingsd &
 picom --config /home/dacker/.config/picom/picom.conf &
 #polybar launch script &
 clipmenud &
 volumeicon &
 nm-applet &
+xfce4-power-manager &
+# Start mpd
+exec mpd &
 
 #Monitor setup
 bspc monitor -d I II III IV V VI VII 
 xrandr -s 1920x1080 &
-feh --bg-fill /home/dacker/.config/wallpaper/wallpaper.jpg &
+feh --no-fehbg --bg-fil lhome/dacker/.config/wallpaper/wallpaper.jpg &
 
 #Cursor setup
 xsetroot -cursor_name left_ptr &

@@ -3,8 +3,13 @@
 export EDITOR='nvim'
 export VISUAL='kate'
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+#shopt
+shopt -s autocd # change to named directory
+shopt -s cdspell # autocorrects cd misspellings
+shopt -s cmdhist # save multi-line commands in history as single line
+shopt -s dotglob
+shopt -s histappend # do not overwrite history
+shopt -s expand_aliases # expand aliases
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -14,13 +19,6 @@ HISTFILESIZE=2000
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
-
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
@@ -118,6 +116,12 @@ alias shutdown='sudo shutdown now'
 alias df='df -h'
 alias free="free -mt"
 alias wget="wget -c"
+#userlist
+alias userlist="cut -d: -f1 /etc/passwd"
+#add new fonts
+alias update-fc='sudo fc-cache -fv'
+#hardware info --short
+alias hw="hwinfo --short"
 # pacman and yay
 alias pacsyu='sudo pacman -Syu'                  # update only standard pkgs
 alias pacsyyu='sudo pacman -Syyu'                # Refresh pkglist & update standard pkgs
