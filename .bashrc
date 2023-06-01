@@ -74,7 +74,7 @@ ex ()
   fi
 }
 
-Command to update everything on the system
+#Command to update everything on the system
 upgradeall ()
 {
     echo "====================== Beginning the update cycle ======================"
@@ -128,7 +128,7 @@ alias pacsyyu='sudo pacman -Syyu'                # Refresh pkglist & update stan
 alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
 alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
+alias cleanup='sudo pacman -R $(pacman -Qtdq) && sudo pacman -Scc' # remove orphaned packages
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
