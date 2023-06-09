@@ -20,7 +20,7 @@ sudo systemctl enable avahi-daemon
 sudo systemctl enable acpid
 
 # File Manager (eg. pcmanfm,krusader,thunar,nautilus)
-sudo nala install -y pcmanfm krusader file-roller
+sudo nala install -y pcmanfm krusader file-roller nemo
 
 # Terminal (eg. terminator,kitty,xfce4-terminal)
 sudo nala install -y kitty xfce4-terminal
@@ -29,7 +29,7 @@ sudo nala install -y kitty xfce4-terminal
 sudo nala install -y pulseaudio alsa-utils pavucontrol volumeicon-alsa
 
 # Neofetch/HTOP
-sudo nala install -y neofetch htop btop cmatrix tty-clock xsetroot xrandr arandr mlocate
+sudo nala install -y neofetch htop btop cmatrix tty-clock xsetroot xrandr mlocate
 
 # Network Manager
 sudo nala install -y network-manager network-manager-gnome policykit-1-gnome 
@@ -46,7 +46,7 @@ sudo nala install -y firefox-esr
 sudo nala install -y feh sxiv
 
 # Fonts and icons for now
-sudo nala install -y fonts-firacode fonts-liberation2 fonts-ubuntu papirus-icon-theme fonts-cascadia-code
+sudo nala install -y 
 
 # EXA installation
 # replace ls command in .bashrc file with line below
