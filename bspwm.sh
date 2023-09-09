@@ -23,7 +23,7 @@ sudo systemctl enable acpid
 sudo nala install -y pcmanfm krusader file-roller nemo
 
 # Terminal (eg. terminator,kitty,xfce4-terminal)
-sudo nala install -y kitty xfce4-terminal
+sudo nala install -y kitty xfce4-terminal tilix
 
 # Sound packages
 sudo nala install -y pulseaudio alsa-utils pavucontrol volumeicon-alsa
@@ -44,9 +44,6 @@ sudo nala install -y firefox-esr
 # feh --bg-fill /path/to/directory 
 # sudo nala install -y nitrogen 
 sudo nala install -y feh sxiv
-
-# Fonts and icons for now
-sudo nala install -y 
 
 # EXA installation
 # replace ls command in .bashrc file with line below
@@ -76,9 +73,9 @@ install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
 install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # Install Lightdm Console Display Manager
-sudo nala install -y lightdm lightdm-gtk-greeter-settings
-sudo systemctl enable lightdm
-sudo updatedb
+ # sudo nala install -y lightdm lightdm-gtk-greeter-settings
+ # sudo systemctl enable lightdm
+  sudo updatedb
 
 ########################################################
 # End of script for default config
