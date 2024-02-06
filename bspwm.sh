@@ -35,7 +35,7 @@ sudo nala install -y neofetch htop btop cmatrix tty-clock xsetroot xrandr mlocat
 sudo nala install -y network-manager network-manager-gnome policykit-1-gnome 
 
 # Installation for Appearance management
-sudo nala install -y lxappearance 
+sudo nala install -y  
 
 # Browser Installation (eg. chromium)
 sudo nala install -y firefox-esr 

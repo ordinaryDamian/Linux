@@ -112,7 +112,6 @@ alias mkdir='mkdir -vp'
 alias rmdir='rmdir -vp'
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown now'
-alias shutdown='sudo shutdown now'
 alias df='df -h'
 alias free="free -mt"
 alias wget="wget -c"
@@ -136,6 +135,6 @@ alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/p
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 #Starship prompt 
-#eval "$(starship init bash)"
+eval "$(starship init bash)"
 
 #pfetch
