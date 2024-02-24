@@ -28,6 +28,8 @@ chmod +x setup.sh
 
 sudo pacman -S fastfetch -y
 sudo pacman -S starship -y
+#! /bin/sh
+
 sudo pacman -S dunst-y
 sudo pacman -S net-tools -y
 sudo pacman -S flameshot -y

@@ -1,3 +1,5 @@
+#! /bin/sh
+
 yay -S plymouth-theme-NAME-git
 # packages needed - plymouth, plymouth-x11, plymouth-plugin-script(fedora)
 

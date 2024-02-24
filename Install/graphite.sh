@@ -1,3 +1,5 @@
+#! /bin/sh
+
 sudo pacman -S gnome-themes-extra -y
 sudo pacman -S gtk-engine-murrine -y
 sudo pacman -S sassc -y 
