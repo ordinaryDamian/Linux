@@ -74,7 +74,7 @@ ex ()
   fi
 }
 
-#Command to update everything on the system
+#Command to update everything on the system (debian)
 upgradeall ()
 {
     echo "====================== Beginning the update cycle ======================"
@@ -91,10 +91,10 @@ upgradeall ()
 }
  
 alias ls='exa --long --binary --group --header --created --modified -aFm --group-directories-first --color=auto --sort=modified'
-# alias ll='ls -alF'
-# alias la='ls -A'
-# alias l='ls -CF'
-# alias lse='ls -lhCF --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lse='ls -lhCF --color=auto'
 alias vim='nvim'
 alias svim='sudo nvim'
 alias dir='dir --color=auto'
@@ -117,7 +117,7 @@ alias free="free -mt"
 alias wget="wget -c"
 #userlist
 alias userlist="cut -d: -f1 /etc/passwd"
-#add new fonts
+# add new fonts
 alias update-fc='sudo fc-cache -fv'
 #hardware info --short
 alias hw="hwinfo --short"
