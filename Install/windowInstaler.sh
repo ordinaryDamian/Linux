@@ -1,10 +1,19 @@
 #! /bin/sh
+# Sources:
+# https://github.com/K4rlosReyes/arch-bspwm
+
+echo Did you set up pacman ?
+
 
 sudo pacman -Syyu --noconfirm
 
 sudo pacman -S xorg-server xorg-apps xf86-video-vmware --noconfirm
+sudo pacman -S mesa xdg-user-dirs xorg-xinit git flameshot mpv arandr ark brightnessctl ntfs-3g obsidian openssh openssl pulseaudio pulseaudio-alsa pulseaudio-bluetooth unzip  yt-dlp ripgrep fd npm noto-fonts-emoji --noconfirm
 
-sudo pacman -S nemo reflector neofetch btop cmatrix man tldr cowsay --noconfirm
+sudo systemctl enable NetworkManager
+sudo systemctl enable bluetooth
+
+sudo pacman -S nemo reflector btop cmatrix man tldr cowsay --noconfirm
 
 #sudo pacman -S tty-clock 
 #sudo pacman -S xsetroot 
@@ -32,5 +41,15 @@ sudo systemctl enable ly.service
 
 sudo pacman -S feh dmenu kate polybar bspwm sxhkd wezterm xorg-xman hwinfo firefox python cantarell-fonts neovim mpv --noconfirm
 
+sudo pacman -S ttf-roboto ttf-firacode-nerd --noconfirm
+yay -S nerd-fonts-jetbrains-mono --noconfirm
+sudo pacman -S qt5ct --noconfirm
+
+echo And modify the file /etc/environment as sudo an add the following line: QT_QPA_PLATFORMTHEME=qt5ct
+
 sudo updatedb
-mkdir -p /home/$USER/.config/{bspwm,sxhkd,dunst,polybar,picom}
+
+xdg-users-dirs-update
+
+
+mkdir -p $HOME/.config/{bspwm,sxhkd,dunst,polybar,picom}
