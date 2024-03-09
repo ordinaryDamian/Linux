@@ -90,7 +90,7 @@ upgradeall ()
     echo "====================== End of update cycle ======================"
 }
  
-alias ls='exa --long --binary --group --header --created --modified -aFm --group-directories-first --color=auto --sort=modified'
+alias ls='exa --long --binary --group --header --created --modified -am --group-directories-first --color=auto --sort=modified'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'

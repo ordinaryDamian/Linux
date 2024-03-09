@@ -20,7 +20,7 @@ exec mpd &
 #Monitor setup
 bspc monitor -d I II III IV V VI VII 
 xrandr -s 1920x1080 &
-feh --no-fehbg --bg-fil lhome/dacker/.config/wallpaper/wallpaper.jpg &
+feh --no-fehbg --bg-fil home/dacker/.config/wallpaper/wallpaper.jpg &
 
 #Cursor setup
 xsetroot -cursor_name left_ptr &
