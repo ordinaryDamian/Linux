@@ -43,6 +43,9 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Add directory to the $PATH variable for adi1090x rofi scripts
+echo "PATH=$PATH:~/.config/rofi/scripts" >> ~/.profile
+
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
@@ -90,7 +93,7 @@ upgradeall ()
     echo "====================== End of update cycle ======================"
 }
  
-alias ls='exa --long --binary --group --header --created --modified -am --group-directories-first --color=auto --sort=modified'
+alias ls='eza --long --binary --group --header --created --modified -am --group-directories-first --color=auto --sort=modified'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'

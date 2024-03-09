@@ -18,7 +18,7 @@ sudo pacman -S nemo reflector btop cmatrix man tldr cowsay --noconfirm
 #sudo pacman -S tty-clock 
 #sudo pacman -S xsetroot 
 #sudo pacman -S xrandr 
-sudo pacman -S curl zip unzip mlocate thunderbird network-manager-applet eza wget tilix --noconfirm
+sudo pacman -S curl zip unzip mlocate thunderbird network-manager-applet exa eza wget tilix --noconfirm
 
 # https://github.com/adi1090x/rofi
 sudo pacman -S rofi --noconfirm
@@ -49,7 +49,20 @@ echo And modify the file /etc/environment as sudo an add the following line: QT_
 
 sudo updatedb
 
-xdg-users-dirs-update
+xdg-user-dirs-update
 
+mkdir -p $HOME/.config/{bspwm,sxhkd,dunst,polybar,picom,wallpaper}
 
-mkdir -p $HOME/.config/{bspwm,sxhkd,dunst,polybar,picom}
+cp  ./launch.sh  $HOME/.config/polybar/launch.sh
+chmod +x  $HOME/.config/polybar/launch.sh
+
+cp /etc/polybar/config.ini  $HOME/.config/polybar/config.ini
+
+cp -r $HOME/Linux/.bin $HOME/.config/.bin
+chmod +x $HOME/.config/.bin/*
+cp -r $HOME/Linux/wallpaper.jpg $HOME/.config/wallpaper/wallpaper.jpg
+
+cp $HOME/Linux/bspwm/bspwmrc $HOME/.config/bspwm/bspwmrc
+chmod +x $HOME/.config/bspwm/bspwmrc
+cp $HOME/Linux/sxhkd/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
+chmod +x $HOME/.config/sxhkd/sxhkdrc

@@ -14,4 +14,12 @@ sudo plymouth-set-default-theme -R cuts_alt
 
 # optionally you can test theme by running the script given in repo (plymouth-x11 required)
 # sudo ./showplymouth.sh 20
+
 # https://www.debugpoint.com/install-plymouth-arch-linux/
+# open the mkinitcpio.conf and add the plymouth at the end of the HOOKS parameter
+# sudo mkinitcpio -p linux
+
+# append the quiet splash under parameter GRUB_CMDLINE_LINUX_DEFAULT.
+# sudo nano /etc/default/grub
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
+# sudo systemctl enable lightdm-plymouth
