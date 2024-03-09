@@ -4,21 +4,18 @@
 
 echo Did you set up pacman ?
 
-
 sudo pacman -Syyu --noconfirm
 
 sudo pacman -S xorg-server xorg-apps xf86-video-vmware --noconfirm
 sudo pacman -S mesa xdg-user-dirs xorg-xinit git flameshot mpv arandr ark brightnessctl ntfs-3g obsidian openssh openssl pulseaudio pulseaudio-alsa pulseaudio-bluetooth unzip  yt-dlp ripgrep fd npm noto-fonts-emoji --noconfirm
 
-sudo systemctl enable NetworkManager
-sudo systemctl enable bluetooth
 
 sudo pacman -S nemo reflector btop cmatrix man tldr cowsay --noconfirm
 
 #sudo pacman -S tty-clock 
 #sudo pacman -S xsetroot 
 #sudo pacman -S xrandr 
-sudo pacman -S curl zip unzip mlocate thunderbird network-manager-applet exa eza wget tilix --noconfirm
+sudo pacman -S curl zip unzip mlocate thunderbird network-manager-applet exa eza wget tilix networkmanager --noconfirm
 
 # https://github.com/adi1090x/rofi
 sudo pacman -S rofi --noconfirm
@@ -50,13 +47,15 @@ echo And modify the file /etc/environment as sudo an add the following line: QT_
 sudo updatedb
 
 xdg-user-dirs-update
+sudo systemctl enable NetworkManager
+#sudo systemctl enable bluetooth
 
 mkdir -p $HOME/.config/{bspwm,sxhkd,dunst,polybar,picom,wallpaper}
 
-cp  ./launch.sh  $HOME/.config/polybar/launch.sh
-chmod +x  $HOME/.config/polybar/launch.sh
+cp ./launch.sh $HOME/.config/polybar/launch.sh
+chmod +x $HOME/.config/polybar/launch.sh
 
-cp /etc/polybar/config.ini  $HOME/.config/polybar/config.ini
+cp /etc/polybar/config.ini $HOME/.config/polybar/config.ini
 
 cp -r $HOME/Linux/.bin $HOME/.config/.bin
 chmod +x $HOME/.config/.bin/*
