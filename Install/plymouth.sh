@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 yay -S plymouth-theme-cuts-alt-git 
 # packages needed - plymouth, plymouth-x11, plymouth-plugin-script(fedora)
