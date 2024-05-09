@@ -2,14 +2,16 @@
 
 #If refresing BSPWM, remove all previous rules to prevent doubling up
 bspc rule -r "*"
-killall -9 sxhkd dunst picom xfce4-power-manager xsettingsd mpd
+killall -9 sxhkd dunst picom xsettingsd mpd
 
 #Startup stuff
 dunst &
 sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
-xsettingsd --config=$HOME/.config/xsettingsd &
+# xsettingsd --config=$HOME/.config/xsettingsd &
 picom --config $HOME/.config/picom/picom.conf &
 # https://github.com/adi1090x/polybar-themes?tab=readme-ov-file
+usr/lib/polkit-kde-authentication-agent-1 &
+mpd &
 bash ~/.config/polybar/launch.sh --docky & #docky,
 
 #Monitor setup

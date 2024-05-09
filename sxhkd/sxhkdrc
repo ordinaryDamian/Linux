@@ -1,114 +1,85 @@
 # rofi launchers
 super + space
-   	rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
-# rofi network manager (will not work unless on wifi)	
+#rofi -modi drun -show drun -line padding 4 -hide-scrollbar -show-icons
+~/.config/rofi/scripts/launcher_t7
+# rofi network manager (will not work unless on wifi)
 super + n
-	bash ~/.bin/rofi-network-manager
+bash ~/.bin/rofi-network-manager
 # logout, shutdown, reboot
 super + x
-	~/.bin/power
-# help with shortcuts
-super + h
-	~/.bin/rofi-key
+~/.config/rofi/scripts/powermenu_t6
 # application launchers
 super + f
-    firefox
+firefox
+super + shift + f
+brave
 super + Return
-	kitty
- # super + shift + Return
-	 # wezterm
+#kitty
+#alacritty
+super + shift + Return
+wezterm
 super + alt + Return
-	pcmanfm
-super + e 	
-	kate
+pcmanfm
+super + e
+notepadqq
 # Email
 super + m
-	thunderbird
-super + t
-	~/.bin/time_date
+thunderbird
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 # quit/restart bspwm
 # Restart: super+alt+r
 # quit:    super+alt+q
 super + alt + r
-	bspc wm -r; notify-send 'bspwm' 'Restarted'
+bspc wm -r; notify-send 'bspwm' 'Restarted'
 super + alt + q
-	bspc quit
+bspc quit
 # close and kill
 # Exit: super+q
-# Forcefull kill: super + shift + q 
+# Forcefull kill: super + shift + q
 super + {_,shift + }q
-	bspc node -{c,k}
+bspc node -{c,k}
 # Rotate windows ?
 super + i
-    bspc node -R 90
+bspc node -R 90
 super + shift + i
-    bspc node -R -90
+bspc node -R -90
 super + {shift + t,shift + f, shift + l}
 mod	bspc node -t {tiled,fullscreen,floating}
 super + { Left, Down, Up, Right}
-	bspc node -f {west,south,north,east}
+bspc node -f {west,south,north,east}
 super + shift + { Left, Down, Up, Right}
-	bspc node -s {west,south,north,east}
+bspc node -s {west,south,north,east}
 ## Change workspace with dunst feedback
 # super + {_,shift + }{1-9,0}
-	# bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}' --follow; \
-	# ~/.bin/whichws
+# bspc {desktop --focus,node --to-desktop} 'focused:^{1-9,10}' --follow; \
+# ~/.bin/whichws
 ## Resizing windows
 super + ctrl + { Left, Down, Up, Right}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 super + ctrl + alt + { Left, Down, Up, Right}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 # move a floating window
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+bspc node -v {-20 0,0 20,0 -20,20 0}
 ##  preselect the direction
 super + shift + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+bspc node -p {west,south,north,east}
 # preselect the ratio
 super + shift + {1-9}
-	bspc node -o 0.{1-9}
+bspc node -o 0.{1-9}
 # cancel the preselection for the focused node
 super + shift + space
-	bspc node -p cancel
+bspc node -p cancel
 # cancel the preselection for the focused desktop
 super + shift + alt + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 # super +  1-8: switch workspace
 # super + alt + 1-8: move window to workspace
 super + {_,alt + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}'
+bspc {desktop -f,node -d} '^{1-8}'
 ## audio
-# Change volume, chunky
-super + shift + u
-    ~/.bin/changevolume up
-    
-super + shift + d
-	~/.bin/changevolume down
-	
-super + shift + m
-	~/.bin/changevolume mute
-#########
-# Scrot #
-#########
-super + alt + @s
-	scrot -s -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Selected image to ~/Pictures'
-super + s
-	scrot -e 'mv $f ~/Pictures'; \
-	notify-send 'Scrot' 'Image saved to ~/Pictures'
-## redshift
-super + alt + c
-	~/.bin/redshift-on
-super + alt + b
-	~/.bin/redshift-off
-## Show clipmenu
-alt + v
-    CM_LAUNCHER=rofi clipmenu 
-## Show clipmenu
-super+ alt + v
-    xfce4-terminal -e ~/.bin/ovpn
-super + @equal
-	bspc query -N -d | xargs -I % bspc node % -B
+# Change volume
+super + shift + v
+~/.config/rofi/applets/bin/volume.sh

@@ -1,7 +1,7 @@
 # .bashrc
 
 export EDITOR='nvim'
-export VISUAL='kate'
+export VISUAL='notepadqq'
 
 #shopt
 shopt -s autocd # change to named directory
@@ -17,7 +17,7 @@ HISTFILESIZE=2000
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
@@ -25,22 +25,22 @@ fi
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
 fi
 
 unset rc
 
-#Completition for PATH 
+#Completition for PATH
 if [ -d "$HOME/.bin" ] ;
-  then PATH="$HOME/.bin:$PATH"
+then PATH="$HOME/.bin:$PATH"
 fi
 
 if [ -d "$HOME/.local/bin" ] ;
-  then PATH="$HOME/.local/bin:$PATH"
+then PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Add directory to the $PATH variable for adi1090x rofi scripts
@@ -51,48 +51,31 @@ bind "set completion-ignore-case on"
 
 ## # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
-
 ex ()
 {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *.deb)       ar x $1      ;;
-      *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   tar xf $1    ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xjf $1   ;;
+            *.tar.gz)    tar xzf $1   ;;
+            *.bz2)       bunzip2 $1   ;;
+            *.rar)       unrar x $1   ;;
+            *.gz)        gunzip $1    ;;
+            *.tar)       tar xf $1    ;;
+            *.tbz2)      tar xjf $1   ;;
+            *.tgz)       tar xzf $1   ;;
+            *.zip)       unzip $1     ;;
+            *.Z)         uncompress $1;;
+            *.7z)        7z x $1      ;;
+            *.deb)       ar x $1      ;;
+            *.tar.xz)    tar xf $1    ;;
+            *.tar.zst)   tar xf $1    ;;
+            *)           echo "'$1' cannot be extracted via ex()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
 }
 
-#Command to update everything on the system (debian)
-upgradeall ()
-{
-    echo "====================== Beginning the update cycle ======================"
-    echo " Running sudo nala update && sudo nala upgrade -y "
-    sudo nala update && sudo nala upgrade -y
-    sudo nala autoremove && sudo nala autopurge -y
-    echo " End of running standard system update (nala) "
-    echo " Running update for Nix-env package manager "
-    nix-channel --update nixpkgs
-    nix-env -u '*'
-    nix-collect-garbage -d
-    echo " End of running update for Nix-env package manager "
-    echo "====================== End of update cycle ======================"
-}
- 
 alias ls='eza --long --binary --group --header --created --modified -am --group-directories-first --color=auto --sort=modified'
 alias ll='ls -alF'
 alias la='ls -A'
@@ -132,12 +115,12 @@ alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR 
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -R $(pacman -Qtdq) && sudo pacman -Scc' # remove orphaned packages
 # get fastest mirrors
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+#alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+#alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+#alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+#alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
-#Starship prompt 
+#Starship prompt
 eval "$(starship init bash)"
 
-#pfetch
+pfetch
